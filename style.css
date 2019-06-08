@@ -1,0 +1,32 @@
+body{
+  background-color: #DDDBDB;
+  font-size: 12px;
+}
+
+h3{
+  text-align: center
+}
+
+h4{
+  text-align: center;
+}
+
+#editor{ 
+  max-width: 80%;
+  min-width: 80%;
+  min-height: 700px;
+  margin: 10px;
+  background-color: white;
+}
+
+span{
+   word-wrap: break-word;
+  max-width: 80%;
+  min-width: 80%;
+  min-height: 500px;
+  margin: 10px;
+}
+
+img{
+  width: 100%;
+}

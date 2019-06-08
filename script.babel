@@ -1,0 +1,46 @@
+marked.setOptions({
+  breaks: true,
+});
+
+class NameForm extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {value: "![Independence Day](https://theviewfromsarisworld.files.wordpress.com/2016/07/independence-day-speech.jpg) \n\n # In less than an hour, aircraft from here will join others from around the world.\n\n  ## And you will be launching the _largest aerial battle in this history of mankind._ \n\n *Mankind* -- that word should have new meaning for all of us today. \n\n `We can't be consumed by our petty differences anymore. We will be united in our common interests.`\n\n    Perhaps it's fate that today is the 4th of July, and you will once again be fighting for our freedom, not from tyranny, oppression, or persecution -- but from annihilation. \n\n We're fighting for our right to **live**, to **exist**, my fellow Americans. \n\n > And should we win the day, the 4th of July will no longer be known as an American holiday, but as an Earthling holiday, and I would be honored to represent this planet in the first Galactic Senate. \n\n > I would be a spokesman for all of Earth - for our birds, our lizards, and our trees. Even the trecherous molemen would have a voice. Hear me out: on the condition they surrender their quantum drills and subject themselves to random inspections, I would be willing to offer them proportional representation. \n\n  For this will be the day when the world declared in one voice:\n\n  1.  We will not go quietly into the night!\n  2.  We will not vanish without a fight!\n  3.  We're going to live on!\n  4.  We're going to survive!\n ### _Today, we celebrate our [Independence Day!](https://youtu.be/QoLywiaM6PA) God bless you, and God bless America!_ \n\n If elected, I will focus on the economy.."};
+
+    this.handleChange = this.handleChange.bind(this);
+  }
+
+  handleChange(event) {   
+    this.setState({value: event.target.value});
+  }
+  
+  handleOutput(value){
+     return {__html: marked(value, {sanitize: true})}
+  }
+
+  render() {
+    return (
+      <div>
+        <h3>markdown previewer</h3>
+         <hr/>
+   <div className = "row">
+        <div className = "col-md-6">
+          <h4>input</h4>
+          <textarea id = "editor" onChange={this.handleChange} value = {this.state.value} onSubmit = {this.handleOutput}>
+          </textarea>
+        </div>
+  
+        <div className = "col-md-6">
+           <h4>output</h4>
+          <span id = "preview" dangerouslySetInnerHTML={this.handleOutput(this.state.value)}/>    
+       </div>
+        </div>
+        </div>
+    );
+  }
+}
+
+ReactDOM.render(
+  <NameForm />,
+  document.getElementById('root')
+);
